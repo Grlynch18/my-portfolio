@@ -2,344 +2,382 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ademide Adedeji| Front-End Developer & AI Automation Engineer</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
-        integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Ademide Adedeji | Front-End Developer & AI Automation Engineer</title>
+  <meta name="description"
+    content="Ademide Adedeji — Front-End Developer and AI Automation Engineer based in Ibadan, Nigeria. I build responsive, high-performance websites and AI-powered automation workflows including Telegram bots and productivity tools." />
+  <meta name="keywords"
+    content="Ademide Adedeji, front end developer, AI automation engineer, web developer Nigeria, HTML CSS JavaScript, Python automation, Telegram bots, workflow automation, portfolio" />
+  <meta name="author" content="Ademide Adedeji" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://portfolio-ten-khaki-nj9spz5jeq.vercel.app/" />
+
+  <!-- Open Graph (LinkedIn, Facebook, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ademide Adedeji | Front-End Developer & AI Automation Engineer" />
+  <meta property="og:description"
+    content="Front-end developer and AI automation engineer crafting sleek web experiences and AI driven workflows." />
+  <meta property="og:url" content="https://portfolio-ten-khaki-nj9spz5jeq.vercel.app/" />
+  <meta property="og:site_name" content="Ademide Adedeji Portfolio" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ademide Adedeji",
+    "url": "https://portfolio-ten-khaki-nj9spz5jeq.vercel.app/",
+    "jobTitle": "Front-End Developer & AI Automation Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    },
+    "sameAs": [
+      "https://github.com/Grlynch18",
+      "https://t.me/lynchxx18",
+      "https://www.linkedin.com/in/ademide-adedeji-74162836b"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ibadan",
+      "addressCountry": "Nigeria"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
+
+  <!-- Styles & Icons -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+    integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Third-party Script -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <button class="hamburger" aria-label="Toggle menu">
+  <header>
+    <nav>
+      <button class="hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
-        
-    </button>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#techstack">Tech Stack</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a class="resume-btn" href="./ademideresume.pdf" download="ademideresume.pdf">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <div class="hero">
-                <h1>ADEMIDE ADEDEJI</h1>
-                <h2>FRONT END & AI AUTOMATION ENGINEER</h2>
-                <p class="hero-p">Based in Nigeria, I craft intuitive front-end interfaces and automate complex
-                    workflows with AI, turning ideas into seamless, efficient web experiences.</p>
-                <div class="social-icons">
-                    <a href="mailto:adedejiademide4@gmail.com"><i class="bi bi-envelope-at-fill"></i></a>
-                    <a href="https://t.me/lynchxx18"><i class="bi bi-telegram"></i></a>
-                    <a href="https://github.com/Grlynch18"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b"><i class="bi bi-linkedin"></i></a>
-                </div>
-                <a href="#contact"><button class="tagline-btn">Get In Touch</button></a>
-            </div>
-        </section>
-
-        <section id="techstack" class="tech-stack-section">
-            <div class="tech-stack">
-                <h3>My Tech Stack</h3>
-                <span class="tech-stack-span">My arsenal for crafting modern web experiences.</span>
-                <div class="tech-categories">
-                    <div class="tech-category">
-                        <h4 class="category-title">Front-End Development</h4>
-                        <div class="tech-items">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript (ES6+) <span class="learning-badge">Learning</span></span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h4 class="category-title">AI Automation</h4>
-                        <div class="tech-items">
-                            <span class="tech-tag">Workflow Automation</span>
-                            <span class="tech-tag">AI Integration</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h4 class="category-title">Python & Tools</h4>
-                        <div class="tech-items">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Telegram Bots</span>
-                            <span class="tech-tag">Git</span>
-                            <span class="tech-tag">GitHub</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h4 class="category-title">Core Skills</h4>
-                        <div class="tech-items">
-                            <span class="tech-tag">Interpersonal</span>
-                            <span class="tech-tag">Creativity</span>
-                            <span class="tech-tag">Data Operations Specialist</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="projects-container">
-                <h4>Projects</h4>
-                <span class="project-span">A collection of my recent work and experiments.</span>
-
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img loading="lazy" class="img-1" src="./cointrack-sample.png" alt="CoinTracker">
-                        </div>
-                        <div class="project-overlay">
-                            <h4 class="project-title">CoinTracker</h4>
-                            <p class="project-description">Track cryptocurrency prices in real-time. A sleek crypto
-                                monitoring dashboard that helps users stay updated on market trends and make informed
-                                investment decisions.</p>
-
-                            <div class="project-tech">
-                                <span class="tech-badge">HTML</span>
-                                <span class="tech-badge">CSS</span>
-                                <span class="tech-badge">JAVASCRIPT</span>
-                                <span class="tech-badge">API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://my-acode-projects.vercel.app/cointracker.html" target="_blank"
-                                    class="project-link" title="Live Site">
-                                    <i class="bi bi-box-arrow-up-right"></i>
-                                </a>
-                                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link"
-                                    title="GitHub Repo">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img loading="lazy" class="img-1" src="./localbite-samle.png" alt="LocalBite">
-                        </div>
-                        <div class="project-overlay">
-                            <h4 class="project-title">LocalBite</h4>
-                            <p class="project-description">Discover local restaurants with ease. A dynamic food
-                                discovery platform featuring restaurant cards with ratings, cuisine types, hours, and
-                                contact info—making it simple to find your next great meal.</p>
-
-                            <div class="project-tech">
-                                <span class="tech-badge">HTML</span>
-                                <span class="tech-badge">CSS</span>
-                                <span class="tech-badge">JAVASCRIPT</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://my-acode-projects.vercel.app/index.html" target="_blank"
-                                    class="project-link" title="Live Site">
-                                    <i class="bi bi-box-arrow-up-right"></i>
-                                </a>
-                                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link"
-                                    title="GitHub Repo">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img loading="lazy" class="img-1" src="./resumebuilder-sample.png" alt="Resume Builder">
-                        </div>
-                        <div class="project-overlay">
-                            <h4 class="project-title">Resume Builder</h4>
-                            <p class="project-description">Build professional resumes effortlessly. An intuitive resume
-                                creation tool with customizable templates, real-time preview, and structured sections to
-                                help job seekers stand out.</p>
-
-                            <div class="project-tech">
-                                <span class="tech-badge">HTML</span>
-                                <span class="tech-badge">CSS</span>
-                                <span class="tech-badge">JAVASCRIPT</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://my-acode-projects.vercel.app/resumebuilder.html" target="_blank"
-                                    class="project-link" title="Live Site">
-                                    <i class="bi bi-box-arrow-up-right"></i>
-                                </a>
-                                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link"
-                                    title="GitHub Repo">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img loading="lazy" class="img-1" src="./memebot-sample.png" alt="Meme Bot">
-                        </div>
-                        <div class="project-overlay">
-                            <h4 class="project-title">Meme Bot</h4>
-                            <p class="project-description">An intelligent Telegram bot that delivers fresh memes on
-                                demand using Python and APIs. Entertainment meets automation.</p>
-
-                            <div class="project-tech">
-                                <span class="tech-badge">PYTHON</span>
-                                <span class="tech-badge">TELEGRAM API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://t.me/habittrackbot_bot" target="_blank" class="project-link"
-                                    title="Live Site">
-                                    <i class="bi bi-box-arrow-up-right"></i>
-                                </a>
-                                <a href="#" target="_blank" class="project-link" title="GitHub Repo">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img loading="lazy" class="img-1" src="./habitbot-sample.png" alt="Habit Bot">
-                        </div>
-                        <div class="project-overlay">
-                            <h4 class="project-title">Habit Bot</h4>
-                            <p class="project-description">Track and build better habits with this Telegram bot that
-                                sends daily reminders and tracks your progress. Consistency made simple.</p>
-
-                            <div class="project-tech">
-                                <span class="tech-badge">PYTHON</span>
-                                <span class="tech-badge">TELEGRAM API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://t.me/memecfinder_bot" target="_blank" class="project-link"
-                                    title="Live Site">
-                                    <i class="bi bi-box-arrow-up-right"></i>
-                                </a>
-                                <a href="https://github.com/Grlynch18/python-telegrambot" target="_blank"
-                                    class="project-link" title="GitHub Repo">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="timeline">
-            <h2>Work Experience</h2>
-            <div class="timeline">
-
-                <div class="container left">
-                    <div class="content">
-                        <h3>AI Workflow Developer</h3>
-                        <span>2025 - Present</span>
-                        <p>Building automation bots and AI-powered tools using Python and Zapier for real-time crypto
-                            tracking and productivity workflows.</p>
-                    </div>
-                </div>
-
-                <div class="container right">
-                    <div class="content">
-                        <h3>Frontend Developer</h3>
-                        <span>2024 - Present</span>
-                        <p>Developed responsive web apps using HTML, CSS, and JavaScript including
-                            <a href="https://my-acode-projects.vercel.app/index.html" target="_blank">LocalBites</a>
-                            and
-                            <a href="https://my-acode-projects.vercel.app/cointracker.html"
-                                target="_blank">CoinTracker</a>.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="container left">
-                    <div class="content">
-                        <h3>Telegram Bot Developer</h3>
-                        <span>2024</span>
-                        <p>Built two bots — one for task management and another to track bullish memecoins using the
-                            DEXScreener API and Jupiter DEX.</p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="container right">
-                <div class="content">
-                    <h3>BSc. Computer Science</h3>
-                    <span>Ladoke Akintola University of Technology (2024 - Present)</span>
-                    <p>Developing strong analytical and problem-solving skills that I now apply to building efficient,
-                        scalable, and user-focused digital solutions.</p>
-                </div>
-            </div>
-        </section>
-
-
-
-        <section id="contact" class="contact-form">
-            <h6>Let's Build Something Nice!</h6>
-            <span class="contact-span">Got a project or idea? I’d love to help bring it to life</span>
-
-            <form class="cont-container">
-                <div class="input-group">
-                    <input name="name" type="text" required>
-                    <label>Your Name</label>
-                </div>
-                <div class="input-group">
-                    <input name="email" type="email" required>
-                    <label>Your Email</label>
-                </div>
-                <div class="input-group">
-                    <input name="subject" type="text" required>
-                    <label>Subject</label>
-                </div>
-                <div class="input-group">
-                    <input name="message" type="text" required>
-                    <label>Your Message</label>
-                </div>
-                <button type="submit" class="message-btn">Send Message</button>
-            </form>
-
-            <div class="contact-info">
-                <div class="info-item">
-                    <i class="bi bi-telephone-fill"></i>
-                    <p>Phone Number: <span class="info-span">+234-813-470-5269</span></p>
-                </div>
-                <div class="info-item">
-                    <i class="bi bi-envelope-fill"></i>
-                    <p>Email: <span class="info-span">adedejiademide4@gmail.com</span></p>
-                </div>
-                <div class="info-item">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <p>Location: <span class="info-span">Ibadan, Nigeria</span></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2025 Ademide Adedeji. All rights reserved.</p>
-            <div class="footer-socials">
-                <a href="https://github.com/Grlynch18" target="_blank"><i class="bi bi-github"></i></a>
-                <a href="https://t.me/lynchxx18" target="_blank"><i class="bi bi-telegram"></i></a>
-                <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank"><i
-                        class="bi bi-linkedin"></i></a>
-            </div>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#techstack">Tech Stack</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="resume-btn" href="./ademideresume.pdf" download="ademideresume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <div class="hero">
+        <h1>ADEMIDE ADEDEJI</h1>
+        <h2>FRONT END & AI AUTOMATION ENGINEER</h2>
+        <p class="hero-p">Based in Nigeria, I craft intuitive front-end interfaces and automate complex workflows
+          with AI, turning ideas into seamless, efficient web experiences.</p>
+        <div class="social-icons">
+          <a href="mailto:adedejiademide4@gmail.com"><i class="bi bi-envelope-at-fill"></i></a>
+          <a href="https://t.me/lynchxx18"><i class="bi bi-telegram"></i></a>
+          <a href="https://github.com/Grlynch18"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b"><i class="bi bi-linkedin"></i></a>
         </div>
-    </footer>
+        <a href="#contact"><button class="tagline-btn">Get In Touch</button></a>
+      </div>
+    </section>
 
+    <section id="techstack" class="tech-stack-section">
+      <div class="tech-stack">
+        <h3>My Tech Stack</h3>
+        <span class="tech-stack-span">My arsenal for crafting modern web experiences.</span>
+        <div class="tech-categories hidden">
+          <div class="tech-category">
+            <h4 class="category-title">Front-End Development</h4>
+            <div class="tech-items">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript (ES6+) <span class="learning-badge">Learning</span></span>
+            </div>
+          </div>
+
+          <div class="tech-category">
+
+            <h4 class="category-title">AI Automation</h4>
+            <div class="tech-items">
+              <span class="tech-tag">Workflow Automation</span>
+              <span class="tech-tag">AI Integration</span>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h4 class="category-title">Python & Tools</h4>
+            <div class="tech-items">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Telegram Bots</span>
+              <span class="tech-tag">Git</span>
+              <span class="tech-tag">GitHub</span>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h4 class="category-title">Core Skills</h4>
+            <div class="tech-items">
+              <span class="tech-tag">Interpersonal</span>
+              <span class="tech-tag">Creativity</span>
+              <span class="tech-tag">Data Operations Specialist</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="projects-container">
+        <h4>Projects</h4>
+        <span class="project-span">A collection of my recent work and experiments.</span>
+
+        <div class="projects-grid hidden">
+          <div class="project-card">
+            <div class="project-image">
+              <img loading="lazy" class="img-1" src="./cointrack-sample.png" alt="CoinTracker">
+            </div>
+            <div class="project-overlay">
+              <h4 class="project-title">CoinTracker</h4>
+              <p class="project-description">Track cryptocurrency prices in real-time. A sleek crypto monitoring
+                dashboard that helps users stay updated on market trends and make informed investment decisions.</p>
+
+              <div class="project-tech">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JAVASCRIPT</span>
+                <span class="tech-badge">API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-acode-projects.vercel.app/cointracker.html" target="_blank" class="project-link"
+                  title="Live Site">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link" title="GitHub Repo">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img loading="lazy" class="img-1" src="./localbite-samle.png" alt="LocalBite">
+            </div>
+            <div class="project-overlay">
+              <h4 class="project-title">LocalBite</h4>
+              <p class="project-description">Discover local restaurants with ease. A dynamic food discovery platform
+                featuring restaurant cards with ratings, cuisine types, hours, and contact info—making it simple to find
+                your next great meal.</p>
+
+              <div class="project-tech">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JAVASCRIPT</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-acode-projects.vercel.app/index.html" target="_blank" class="project-link"
+                  title="Live Site">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link" title="GitHub Repo">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img loading="lazy" class="img-1" src="./resumebuilder-sample.png" alt="Resume Builder">
+            </div>
+            <div class="project-overlay">
+              <h4 class="project-title">Resume Builder</h4>
+              <p class="project-description">Build professional resumes effortlessly. An intuitive resume creation tool
+                with customizable templates, real-time preview, and structured sections to help job seekers stand out.</p>
+
+              <div class="project-tech">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JAVASCRIPT</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-acode-projects.vercel.app/resumebuilder.html" target="_blank"
+                  class="project-link" title="Live Site">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link" title="GitHub Repo">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img loading="lazy" class="img-1" src="./memebot-sample.png" alt="Meme Bot">
+            </div>
+            <div class="project-overlay">
+              <h4 class="project-title">Meme Bot</h4>
+              <p class="project-description">An intelligent Telegram bot that delivers fresh memes on demand using Python
+                and APIs. Entertainment meets automation.</p>
+
+              <div class="project-tech">
+                <span class="tech-badge">PYTHON</span>
+                <span class="tech-badge">TELEGRAM API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://t.me/habittrackbot_bot" target="_blank" class="project-link" title="Live Site">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <a href="#" target="_blank" class="project-link" title="GitHub Repo">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img loading="lazy" class="img-1" src="./habitbot-sample.png" alt="Habit Bot">
+            </div>
+            <div class="project-overlay">
+              <h4 class="project-title">Habit Bot</h4>
+              <p class="project-description">Track and build better habits with this Telegram bot that sends daily
+                reminders and tracks your progress. Consistency made simple.</p>
+
+              <div class="project-tech">
+                <span class="tech-badge">PYTHON</span>
+                <span class="tech-badge">TELEGRAM API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://t.me/memecfinder_bot" target="_blank" class="project-link" title="Live Site">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Grlynch18/python-telegrambot" target="_blank"
+                  class="project-link" title="GitHub Repo">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <h2>Work Experience</h2>
+      <div class="timeline hidden">
+
+        <div class="container left">
+          <div class="content">
+            <h3>AI Workflow Developer</h3>
+            <span>2025 - Present</span>
+            <p>Building automation bots and AI-powered tools using Python and Zapier for real-time crypto tracking and
+              productivity workflows.</p>
+          </div>
+        </div>
+
+        <div class="container right">
+          <div class="content">
+            <h3>Frontend Developer</h3>
+            <span>2024 - Present</span>
+            <p>Developed responsive web apps using HTML, CSS, and JavaScript including
+              <a href="https://my-acode-projects.vercel.app/index.html" target="_blank">LocalBites</a> and
+              <a href="https://my-acode-projects.vercel.app/cointracker.html" target="_blank">CoinTracker</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="container left">
+          <div class="content">
+            <h3>Telegram Bot Developer</h3>
+            <span>2024</span>
+            <p>Built two bots — one for task management and another to track bullish memecoins using the DEXScreener API
+              and Jupiter DEX.</p>
+          </div>
+        </div>
+
+        <div class="container right">
+          <div class="content">
+            <h3>BSc. Computer Science</h3>
+            <span>Ladoke Akintola University of Technology (2024 - Present)</span>
+            <p>Developing strong analytical and problem-solving skills that I now apply to building efficient, scalable,
+              and user-focused digital solutions.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="contact-form hidden">
+      <h6>Let's Build Something Nice!</h6>
+      <span class="contact-span">Got a project or idea? I’d love to help bring it to life</span>
+
+      <form class="cont-container">
+        <div class="input-group">
+          <input name="name" type="text" required>
+          <label>Your Name</label>
+        </div>
+        <div class="input-group">
+          <input name="email" type="email" required>
+          <label>Your Email</label>
+        </div>
+        <div class="input-group">
+          <input name="subject" type="text" required>
+          <label>Subject</label>
+        </div>
+        <div class="input-group">
+          <input name="message" type="text" required>
+          <label>Your Message</label>
+        </div>
+        <button type="submit" class="message-btn">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="bi bi-telephone-fill"></i>
+          <p>Phone Number: <span class="info-span">+234-813-470-5269</span></p>
+        </div>
+        <div class="info-item">
+          <i class="bi bi-envelope-fill"></i>
+          <p>Email: <span class="info-span">adedejiademide4@gmail.com</span></p>
+        </div>
+        <div class="info-item">
+          <i class="bi bi-geo-alt-fill"></i>
+          <p>Location: <span class="info-span">Ibadan, Nigeria</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer hidden">
+    <div class="footer-container">
+      <p>&copy; 2025 Ademide Adedeji. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Grlynch18" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://t.me/lynchxx18" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank"><i
+            class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
 </body>
-<script src="./script.js"></script>
 
 </html>

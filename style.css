@@ -16,7 +16,7 @@ body {
     background: #ffffff;
 }
 
-
+/* --- NAVIGATION BAR --- */
 nav {
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -34,7 +34,6 @@ nav {
     margin: 30px auto 0;
     backdrop-filter: blur(12px);
     display: flex;
-
     justify-content: space-between;
     align-items: center;
 }
@@ -151,7 +150,7 @@ nav:hover::after {
 }
 
 .hamburger span:nth-child(1) {
-    top: 5px;
+    top:2px;
 }
 
 .hamburger span:nth-child(2) {
@@ -160,7 +159,7 @@ nav:hover::after {
 }
 
 .hamburger span:nth-child(3) {
-    margin-top: 7px;
+    bottom:9px;
 }
 
 
@@ -176,6 +175,7 @@ nav:hover::after {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* --- HERO SECTION --- */
 .hero {
     margin: 0 auto;
     padding: 50px 20px;
@@ -186,7 +186,7 @@ nav:hover::after {
     font-weight: 500;
     padding: 1px 20px;
     font-size: 18px;
-    max-width: 290px;
+    max-width: 450px; /* Increased max-width for better desktop look */
     line-height: 1.6;
 }
 
@@ -234,7 +234,7 @@ h2 {
     transform: translateY(4px);
 }
 
-
+/* --- TECH STACK SECTION --- */
 h3 {
     font-size: 30px;
     display: flex;
@@ -332,7 +332,7 @@ h3 {
     border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-
+/* --- PROJECTS SECTION --- */
 h4 {
     font-size: 30px;
     display: flex;
@@ -514,7 +514,7 @@ h4 {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-
+/* --- TIMELINE SECTION --- */
 #timeline {
     padding: 60px 20px;
     background-color: #f9f9f9;
@@ -550,6 +550,8 @@ h4 {
     padding: 15px 40px;
     position: relative;
     width: 50%;
+    /* ADDED FOR STAGGERED ANIMATION */
+    transition-delay: calc(var(--i) * 100ms);
 }
 
 .container::after {
@@ -610,6 +612,7 @@ a {
     text-decoration: none;
 }
 
+/* --- CONTACT SECTION --- */
 h6 {
     font-size: 30px;
     display: flex;
@@ -676,27 +679,25 @@ h6 {
 
 .input-group label {
     position: absolute;
-    top: 50%;
+    top: 9px; /* FIX: Adjusted for better vertical placement */
     left: 14px;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); REMOVED: Adjusting 'top' handles vertical alignment better */
     font-size: 1rem;
     color: #aaa;
     pointer-events: none;
-    background: #f5f5f5;
+    background: #f9f9f9; /* Use contact form background for seamless look */
     padding: 0 4px;
     transition: all 0.25s ease-in-out;
 }
 
 .input-group input:focus+label,
-.input-group input:not(:placeholder-shown)+label {
+.input-group input:not(:placeholder-shown)+label,
+.input-group input:valid+label { /* Added :valid selector for non-placeholder behavior */
     top: -10px;
     font-size: 0.75rem;
     color: #555;
+    background: #f9f9f9;
 }
-
-
-
-
 
 
 .contact-info {
@@ -745,16 +746,17 @@ h6 {
     border-radius: 5px;
     transition: all 0.4s ease-in-out;
     margin: 0 auto;
+    display: block; /* Ensures button is block-level for margin: auto to work */
+}
 
-    &:hover {
-        transform: translateY(4px);
-        background-color: grey;
-        color: white;
-    }
-
+.message-btn:hover {
+    transform: translateY(4px);
+    background-color: grey;
+    color: white;
 }
 
 
+/* --- FOOTER --- */
 .footer {
     background-color: #f9f9f9;
     color: #333;
@@ -778,10 +780,12 @@ h6 {
     color: #0077b5;
 }
 
-/* --- Media Queries for Mobile Responsiveness --- */
+/* ---------------------------------------------------------------- */
+/* --- MEDIA QUERIES FOR MOBILE RESPONSIVENESS (MAX-WIDTH: 768px) --- */
+/* ---------------------------------------------------------------- */
 @media (max-width: 768px) {
 
-    
+    /* NAVIGATION BAR */
     nav {
         width: 90%;
         padding: 0.8rem 1.5rem;
@@ -792,10 +796,11 @@ h6 {
         display: block;
     }
 
+    /* MOBILE MENU OVERLAY */
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%;
+        top: 80px; /* Adjusted to sit below the nav bar */
         left: 50%;
         transform: translateX(-50%);
         flex-direction: column;
@@ -806,6 +811,7 @@ h6 {
         padding: 20px 0;
         gap: 10px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Ensure it stays above content but below the hamburger */
     }
 
     .nav-links.active {
@@ -831,6 +837,13 @@ h6 {
         border-radius: 5px;
         padding: 12px 24px;
     }
+
+    /* HERO SECTION CENTERING FIXES */
+    .hero {
+        text-align: center;
+        padding: 50px 10px;
+    }
+
     h1 {
         font-size: 48px;
         padding: 10px 0;
@@ -843,50 +856,57 @@ h6 {
 
     .hero-p {
         font-size: 16px;
-        max-width: none;
+        max-width: 90%; 
         padding: 1px 0;
+        margin: 0 auto; /* Centers paragraph */
     }
 
+    /* FIX: SOCIAL ICONS Centering */
+    .social-icons {
+        margin: 20px auto 10px; /* Center the icons and give spacing */
+        justify-content: center;
+        width: fit-content;
+        margin-left: auto; /* Override main CSS margin-left */
+    }
+    
+    /* FIX: TAGLINE BUTTON Centering */
     .tagline-btn {
-        margin-left: 0;
-    }
-      .social-icons{
-        position: relative;
-        left: 100px;
-      }
-
-    .hero {
-        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
 
-  
+    /* TECH STACK ADJUSTMENTS */
+    .tech-categories {
+        grid-template-columns: 1fr; /* Stack categories vertically on mobile */
+        gap: 20px;
+    }
+    
+    .category-title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* FIX: PROJECTS SECTION (Preventing Overflow) */
+    .projects-container {
+        padding: 40px 10px; /* Reduced padding helps contain the grid */
+        margin: 20px auto;
+        border-radius: 20px; 
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Force cards to stack on mobile */
+        gap: 20px;
+        padding: 0;
+    }
+
     .project-card {
-        aspect-ratio:4/3;
-        height: auto;
-        max-width: 100%;
-    }
-
-    .project-title {
-        color: white;
-    }
-
-    .project-description {
-        color: rgba(255, 255, 255, 0.85);
-    }
-
-    .project-tech {
-        justify-content: center;
-    }
-
-    .project-links {
-        justify-content: center;
-    }
-
-    .tech-badge {
-        background: #8b5cf6;
+        max-width: 100%; /* Ensures it fits within the container */
     }
 
 
+    /* TIMELINE FIXES */
     .timeline::after {
         left: 31px;
     }
@@ -910,18 +930,48 @@ h6 {
         left: 23px;
     }
 
+    /* FOOTER FIXES */
     .footer {
         flex-direction: column;
         text-align: center;
+        padding: 1.5rem 10px; 
     }
 
     .footer-container {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        width: 100%; 
     }
 
     .footer-socials {
         margin-top: 10px;
     }
+}
+/* ---------------------------------------------------------------- */
+/* --- SCROLL REVEAL ANIMATION STYLES (NEW CODE BELOW) --- */
+/* ---------------------------------------------------------------- */
+
+/* Base state for elements to be animated (hidden, blurry, slightly offset) */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1); /* Main transition property */
+}
+
+/* State when the element is in view (visible, sharp, original position) */
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* Apply staggered animation to children of animated elements 
+   (The JavaScript will set the custom property --i (index) on these elements) */
+.tech-categories .tech-category, /* Tech Stack Categories */
+.projects-grid .project-card, /* Individual Project Cards */
+.timeline .container { /* Individual Timeline Items */
+    /* Use CSS variable to multiply delay by the index supplied by JS */
+    transition-delay: calc(var(--i) * 100ms); 
 }
