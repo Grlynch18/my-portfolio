@@ -5,6 +5,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".cont-container");
     const inputs = form.querySelectorAll("input");
 
+    // --- Hamburger Menu Logic ---
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    const toggleMenu = () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    };
+
+    hamburger.addEventListener("click", toggleMenu);
+
+    // Close menu when a link is clicked (for better mobile UX)
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navLinks.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+
+
+    
+
     // Handle form submission
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -59,4 +83,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-

@@ -17,6 +17,12 @@
 <body>
     <header>
         <nav>
+            <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        
+    </button>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#techstack">Tech Stack</a></li>
@@ -27,7 +33,6 @@
         </nav>
     </header>
     <main>
-        <!--hero section-->
         <section>
             <div class="hero">
                 <h1>ADEMIDE ADEDEJI</h1>
@@ -44,13 +49,11 @@
             </div>
         </section>
 
-        <!--techstack section-->
         <section id="techstack" class="tech-stack-section">
             <div class="tech-stack">
                 <h3>My Tech Stack</h3>
                 <span class="tech-stack-span">My arsenal for crafting modern web experiences.</span>
                 <div class="tech-categories">
-                    <!-- Frontend -->
                     <div class="tech-category">
                         <h4 class="category-title">Front-End Development</h4>
                         <div class="tech-items">
@@ -60,7 +63,6 @@
                         </div>
                     </div>
 
-                    <!-- AI Automation -->
                     <div class="tech-category">
                         <h4 class="category-title">AI Automation</h4>
                         <div class="tech-items">
@@ -69,7 +71,6 @@
                         </div>
                     </div>
 
-                    <!-- Python & Tools -->
                     <div class="tech-category">
                         <h4 class="category-title">Python & Tools</h4>
                         <div class="tech-items">
@@ -80,7 +81,6 @@
                         </div>
                     </div>
 
-                    <!-- Skills -->
                     <div class="tech-category">
                         <h4 class="category-title">Core Skills</h4>
                         <div class="tech-items">
@@ -93,14 +93,12 @@
             </div>
         </section>
 
-        <!--projects section-->
         <section id="projects">
             <div class="projects-container">
                 <h4>Projects</h4>
                 <span class="project-span">A collection of my recent work and experiments.</span>
 
                 <div class="projects-grid">
-                    <!--p1-->
                     <div class="project-card">
                         <div class="project-image">
                             <img loading="lazy" class="img-1" src="./cointrack-sample.png" alt="CoinTracker">
@@ -130,7 +128,6 @@
                         </div>
                     </div>
 
-                    <!--p2-->
                     <div class="project-card">
                         <div class="project-image">
                             <img loading="lazy" class="img-1" src="./localbite-samle.png" alt="LocalBite">
@@ -159,7 +156,6 @@
                         </div>
                     </div>
 
-                    <!--p3-->
                     <div class="project-card">
                         <div class="project-image">
                             <img loading="lazy" class="img-1" src="./resumebuilder-sample.png" alt="Resume Builder">
@@ -188,10 +184,9 @@
                         </div>
                     </div>
 
-                    <!--p4-->
                     <div class="project-card">
                         <div class="project-image">
-                            <img loading="lazy"  class="img-1" src="./memebot-sample.png" alt="Meme Bot">
+                            <img loading="lazy" class="img-1" src="./memebot-sample.png" alt="Meme Bot">
                         </div>
                         <div class="project-overlay">
                             <h4 class="project-title">Meme Bot</h4>
@@ -203,7 +198,8 @@
                                 <span class="tech-badge">TELEGRAM API</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://t.me/habittrackbot_bot" target="_blank" class="project-link" title="Live Site">
+                                <a href="https://t.me/habittrackbot_bot" target="_blank" class="project-link"
+                                    title="Live Site">
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
                                 <a href="#" target="_blank" class="project-link" title="GitHub Repo">
@@ -213,7 +209,6 @@
                         </div>
                     </div>
 
-                    <!--p5-->
                     <div class="project-card">
                         <div class="project-image">
                             <img loading="lazy" class="img-1" src="./habitbot-sample.png" alt="Habit Bot">
@@ -228,7 +223,8 @@
                                 <span class="tech-badge">TELEGRAM API</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://t.me/memecfinder_bot" target="_blank" class="project-link" title="Live Site">
+                                <a href="https://t.me/memecfinder_bot" target="_blank" class="project-link"
+                                    title="Live Site">
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
                                 <a href="https://github.com/Grlynch18/python-telegrambot" target="_blank"
@@ -291,56 +287,57 @@
 
 
         <section id="contact" class="contact-form">
-    <h6>Let's Build Something Nice!</h6>
-    <span class="contact-span">Got a project or idea? I’d love to help bring it to life</span>
+            <h6>Let's Build Something Nice!</h6>
+            <span class="contact-span">Got a project or idea? I’d love to help bring it to life</span>
 
-    <form class="cont-container">
-        <div class="input-group">
-            <input name="user_name" type="text" required>
-            <label>Your Name</label>
-        </div>
-        <div class="input-group">
-            <input name="user_email" type="email" required>
-            <label>Your Email</label>
-        </div>
-        <div class="input-group">
-            <input name="subject" type="text" required>
-            <label>Subject</label>
-        </div>
-        <div class="input-group">
-            <input name="message" type="text" required>
-            <label>Your Message</label>
-        </div>
-        <button type="submit" class="message-btn">Send Message</button>
-    </form>
+            <form class="cont-container">
+                <div class="input-group">
+                    <input name="name" type="text" required>
+                    <label>Your Name</label>
+                </div>
+                <div class="input-group">
+                    <input name="email" type="email" required>
+                    <label>Your Email</label>
+                </div>
+                <div class="input-group">
+                    <input name="subject" type="text" required>
+                    <label>Subject</label>
+                </div>
+                <div class="input-group">
+                    <input name="message" type="text" required>
+                    <label>Your Message</label>
+                </div>
+                <button type="submit" class="message-btn">Send Message</button>
+            </form>
 
-    <div class="contact-info">
-        <div class="info-item">
-            <i class="bi bi-telephone-fill"></i>
-            <p>Phone Number: <span class="info-span">+234-813-470-5269</span></p>
-        </div>
-        <div class="info-item">
-            <i class="bi bi-envelope-fill"></i>
-            <p>Email: <span class="info-span">adedejiademide4@gmail.com</span></p>
-        </div>
-        <div class="info-item">
-            <i class="bi bi-geo-alt-fill"></i>
-            <p>Location: <span class="info-span">Ibadan, Nigeria</span></p>
-        </div>
-    </div>
-</section>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="bi bi-telephone-fill"></i>
+                    <p>Phone Number: <span class="info-span">+234-813-470-5269</span></p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-envelope-fill"></i>
+                    <p>Email: <span class="info-span">adedejiademide4@gmail.com</span></p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <p>Location: <span class="info-span">Ibadan, Nigeria</span></p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-    <div class="footer-container">
-        <p>&copy; 2025 Ademide Adedeji. All rights reserved.</p>
-        <div class="footer-socials">
-            <a href="https://github.com/Grlynch18" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://t.me/lynchxx18" target="_blank"><i class="bi bi-telegram"></i></a>
-            <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <div class="footer-container">
+            <p>&copy; 2025 Ademide Adedeji. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Grlynch18" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://t.me/lynchxx18" target="_blank"><i class="bi bi-telegram"></i></a>
+                <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank"><i
+                        class="bi bi-linkedin"></i></a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 <script src="./script.js"></script>

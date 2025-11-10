@@ -6,7 +6,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -15,23 +16,27 @@ body {
     background: #ffffff;
 }
 
-/* Navigation */
+
 nav {
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     z-index: 1000;
     transform: translateY(-150px);
     animation: dropDown 0.8s ease-out 0.3s forwards;
     transition: all 0.3s ease;
     padding: 0.8rem 2.5rem;
     width: fit-content;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 50px;
     position: sticky;
     top: 30px;
     margin: 30px auto 0;
     backdrop-filter: blur(12px);
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav::after {
@@ -122,7 +127,55 @@ nav:hover::after {
     opacity: 0;
 }
 
-/* Hero Section */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+.hamburger span:nth-child(1) {
+    top: 5px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+    margin-top: 7px;
+}
+
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 .hero {
     margin: 0 auto;
     padding: 50px 20px;
@@ -181,7 +234,7 @@ h2 {
     transform: translateY(4px);
 }
 
-/* Tech Stack Section */
+
 h3 {
     font-size: 30px;
     display: flex;
@@ -279,7 +332,7 @@ h3 {
     border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-/* Projects Section */
+
 h4 {
     font-size: 30px;
     display: flex;
@@ -300,7 +353,7 @@ h4 {
     padding: 80px 20px;
     max-width: 1400px;
     margin: 40px auto;
-    background:#E5E5E5;
+    background: #E5E5E5;
     border-radius: 40px;
 }
 
@@ -463,107 +516,109 @@ h4 {
 
 
 #timeline {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-  color: #222;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    color: #222;
 }
 
 #timeline h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 50px;
-  color: black;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: black;
 }
 
 .timeline {
-  position: relative;
-  max-width: 900px;
-  margin: auto;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
 }
 
 .timeline::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  background: linear-gradient(180deg,black);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(180deg, black);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .container {
-  padding: 15px 40px;
-  position: relative;
-  width: 50%;
+    padding: 15px 40px;
+    position: relative;
+    width: 50%;
 }
 
 .container::after {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  right: -8px;
-  background-color: black;
-  border: 3px solid #fff;
-  top: 20px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(185, 130, 255, 0.6);
-  z-index: 1;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -8px;
+    background-color: black;
+    border: 3px solid #fff;
+    top: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(185, 130, 255, 0.6);
+    z-index: 1;
 }
 
 .left {
-  left: 0;
+    left: 0;
 }
 
 .right {
-  left: 50%;
+    left: 50%;
 }
 
 .right::after {
-  left: -8px;
+    left: -8px;
 }
 
 .content {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
 .content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 h3 {
-  color: black;
-  margin-bottom: 8px;
+    color: black;
+    margin-bottom: 8px;
 }
 
 span {
-  display: block;
-  color: #666;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+    display: block;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 }
 
 a {
-  color: #7e57c2;
-  text-decoration: none;
+    color: #7e57c2;
+    text-decoration: none;
 }
-h6{
-    font-size:30px;
+
+h6 {
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 60px;
 }
-.contact-span{
+
+.contact-span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -578,7 +633,7 @@ h6{
     padding: 40px;
     background: #f9f9f9;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form h6 {
@@ -632,8 +687,8 @@ h6{
     transition: all 0.25s ease-in-out;
 }
 
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label {
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
     top: -10px;
     font-size: 0.75rem;
     color: #555;
@@ -677,11 +732,11 @@ h6{
     color: #666;
 }
 
-.info-span{
+.info-span {
     margin-top: 10px;
 }
 
-.message-btn{
+.message-btn {
     padding: 10px 80px;
     color: black;
     background-color: white;
@@ -690,12 +745,13 @@ h6{
     border-radius: 5px;
     transition: all 0.4s ease-in-out;
     margin: 0 auto;
-    &:hover{
-            transform: translateY(4px);
-            background-color: grey;
-            color: white;
+
+    &:hover {
+        transform: translateY(4px);
+        background-color: grey;
+        color: white;
     }
-   
+
 }
 
 
@@ -719,127 +775,153 @@ h6{
 }
 
 .footer-socials a:hover {
-    color: #0077b5; 
+    color: #0077b5;
 }
 
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 768px) {
 
-
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
+    
     nav {
-        padding: 0.5rem 1.5rem;
+        width: 90%;
+        padding: 0.8rem 1.5rem;
+        margin-top: 20px;
+    }
+
+    .hamburger {
+        display: block;
     }
 
     .nav-links {
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    h1 { font-size: 48px; }
-    h2 { font-size: 24px; }
-    .hero-p { max-width: 100%; font-size: 16px; padding: 0 10px; }
-    .social-icons { font-size: 26px; margin-left: 0; }
-    .tagline-btn { margin-left: 0; }
-
-    .tech-categories { gap: 30px; }
-    .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
-    #timeline .container { width: 100%; padding: 15px 20px; }
-    #timeline .right { left: 0; }
-}
-
-/* Mobile (up to 767px) */
-@media (max-width: 767px) {
-    h1 { font-size: 32px; text-align: center; }
-    h2 { font-size: 18px; text-align: center; }
-    .hero-p { font-size: 14px; text-align: center; padding: 0 10px; }
-
-    .social-icons { justify-content: center; margin: 10px 0; }
-    .tagline-btn { display: block; margin: 15px auto; }
-
-    .tech-categories { grid-template-columns: 1fr; gap: 20px; }
-
-
-    .projects-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px; 
-    }
-
-    #timeline::after { left: 8px; }
-    #timeline .container { width: 100%; padding: 15px 10px; }
-    #timeline .left, #timeline .right { left: 0; }
-
-    .contact-form { padding: 20px; margin: 30px 10px; }
-
-    .footer { flex-direction: column; text-align: center; gap: 10px; }
-    .footer-socials { justify-content: center; }
-}
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-    nav {
-        padding: 0.5rem 1.5rem;
-    }
-
-    .nav-links {
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    h1 { font-size: 48px; }
-    h2 { font-size: 24px; }
-    .hero-p { max-width: 100%; font-size: 16px; padding: 0 10px; }
-    .social-icons { font-size: 26px; margin-left: 0; }
-    .tagline-btn { margin-left: 0; }
-
-    .tech-categories { gap: 30px; }
-    .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
-    #timeline .container { width: 100%; padding: 15px 20px; }
-    #timeline .right { left: 0; }
-}
-
-/* Mobile (up to 767px) */
-@media (max-width: 767px) {
-    h1 { font-size: 32px; text-align: center; }
-    h2 { font-size: 18px; text-align: center; }
-    .hero-p { font-size: 14px; text-align: center; padding: 0 10px; }
-
-    .social-icons { justify-content: center; margin: 10px 0; }
-    .tagline-btn { display: block; margin: 15px auto; }
-
-    .tech-categories { grid-template-columns: 1fr; gap: 20px; }
-
-
-    .projects-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px; 
-    }
-
- 
-    #timeline::after,
-    .timeline::after {  
-        content: none;
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        width: 90%;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px 0;
+        gap: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
-    #timeline .container::after { 
-        content: none;
-        display: none;
+    .nav-links.active {
+        display: flex;
     }
 
-    #timeline .container {
+    .nav-links a {
+        padding: 10px 20px;
         width: 100%;
-        padding: 15px 10px;
+        text-align: center;
+        border-radius: 0;
     }
 
-    #timeline .left,
-    #timeline .right {
-        left: 0;
+    .nav-links a::before {
+        display: none;
     }
 
-    .contact-form { padding: 20px; margin: 30px 10px; }
+    .nav-links a.resume-btn {
+        margin-top: 10px;
+        border: none;
+        background: #000;
+        color: white;
+        border-radius: 5px;
+        padding: 12px 24px;
+    }
+    h1 {
+        font-size: 48px;
+        padding: 10px 0;
+    }
 
-    .footer { flex-direction: column; text-align: center; gap: 10px; }
-    .footer-socials { justify-content: center; }
+    h2 {
+        font-size: 24px;
+        padding: 10px 0;
+    }
+
+    .hero-p {
+        font-size: 16px;
+        max-width: none;
+        padding: 1px 0;
+    }
+
+    .tagline-btn {
+        margin-left: 0;
+    }
+      .social-icons{
+        position: relative;
+        left: 100px;
+      }
+
+    .hero {
+        text-align: center;
+    }
+
+  
+    .project-card {
+        aspect-ratio:4/3;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .project-title {
+        color: white;
+    }
+
+    .project-description {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .project-tech {
+        justify-content: center;
+    }
+
+    .project-links {
+        justify-content: center;
+    }
+
+    .tech-badge {
+        background: #8b5cf6;
+    }
+
+
+    .timeline::after {
+        left: 31px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .container::after {
+        left: 23px;
+        margin-left: 0;
+    }
+
+    .right {
+        left: 0%;
+    }
+
+    .right::after {
+        left: 23px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-socials {
+        margin-top: 10px;
+    }
 }
-
