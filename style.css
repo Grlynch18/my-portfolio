@@ -14,28 +14,78 @@ html {
 body {
     min-height: 100vh;
     background: #ffffff;
+    padding-top: 100px;
 }
 
-/* --- NAVIGATION BAR --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled {
+    padding: 10px 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 80%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
 nav {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     z-index: 1000;
     transform: translateY(-150px);
     animation: dropDown 0.8s ease-out 0.3s forwards;
-    transition: all 0.3s ease;
-    padding: 0.8rem 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.6rem 2rem 0.6rem 1.2rem;
     width: fit-content;
-    background: rgba(255, 255, 255, 0.08);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 50px;
-    position: sticky;
-    top: 30px;
-    margin: 30px auto 0;
-    backdrop-filter: blur(12px);
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-logo img {
+    height: 50px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+nav.scrolled .nav-logo img {
+    height: 45px;
+}
+
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: scale(0.98);
+    padding: 0.5rem 1.8rem 0.5rem 1rem;
 }
 
 nav::after {
@@ -162,7 +212,6 @@ nav:hover::after {
     bottom:9px;
 }
 
-
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -175,10 +224,9 @@ nav:hover::after {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* --- HERO SECTION --- */
 .hero {
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 30px 20px 50px;
     max-width: 1200px;
 }
 
@@ -186,7 +234,7 @@ nav:hover::after {
     font-weight: 500;
     padding: 1px 20px;
     font-size: 18px;
-    max-width: 450px; /* Increased max-width for better desktop look */
+    max-width: 450px;
     line-height: 1.6;
 }
 
@@ -234,7 +282,6 @@ h2 {
     transform: translateY(4px);
 }
 
-/* --- TECH STACK SECTION --- */
 h3 {
     font-size: 30px;
     display: flex;
@@ -332,7 +379,6 @@ h3 {
     border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-/* --- PROJECTS SECTION --- */
 h4 {
     font-size: 30px;
     display: flex;
@@ -514,7 +560,6 @@ h4 {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* --- TIMELINE SECTION --- */
 #timeline {
     padding: 60px 20px;
     background-color: #f9f9f9;
@@ -550,7 +595,6 @@ h4 {
     padding: 15px 40px;
     position: relative;
     width: 50%;
-    /* ADDED FOR STAGGERED ANIMATION */
     transition-delay: calc(var(--i) * 100ms);
 }
 
@@ -612,7 +656,6 @@ a {
     text-decoration: none;
 }
 
-/* --- CONTACT SECTION --- */
 h6 {
     font-size: 30px;
     display: flex;
@@ -627,7 +670,6 @@ h6 {
     align-items: center;
     padding: 10px;
 }
-
 
 .contact-form {
     width: 100%;
@@ -659,7 +701,6 @@ h6 {
     gap: 20px;
 }
 
-
 .input-group {
     position: relative;
     width: 100%;
@@ -679,26 +720,24 @@ h6 {
 
 .input-group label {
     position: absolute;
-    top: 9px; /* FIX: Adjusted for better vertical placement */
+    top: 9px;
     left: 14px;
-    /* transform: translateY(-50%); REMOVED: Adjusting 'top' handles vertical alignment better */
     font-size: 1rem;
     color: #aaa;
     pointer-events: none;
-    background: #f9f9f9; /* Use contact form background for seamless look */
+    background: #f9f9f9;
     padding: 0 4px;
     transition: all 0.25s ease-in-out;
 }
 
 .input-group input:focus+label,
 .input-group input:not(:placeholder-shown)+label,
-.input-group input:valid+label { /* Added :valid selector for non-placeholder behavior */
+.input-group input:valid+label {
     top: -10px;
     font-size: 0.75rem;
     color: #555;
     background: #f9f9f9;
 }
-
 
 .contact-info {
     margin-top: 30px;
@@ -746,17 +785,60 @@ h6 {
     border-radius: 5px;
     transition: all 0.4s ease-in-out;
     margin: 0 auto;
-    display: block; /* Ensures button is block-level for margin: auto to work */
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
 }
 
-.message-btn:hover {
+.message-btn:hover:not(:disabled) {
     transform: translateY(4px);
     background-color: grey;
     color: white;
 }
 
+.message-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
 
-/* --- FOOTER --- */
+.message-btn.sending {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.message-btn.sent {
+    background-color: #27ae60;
+    color: white;
+    border-color: #27ae60;
+}
+
+.message-btn.failed {
+    background-color: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+
+.message-btn.sending::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    right: 20px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
 .footer {
     background-color: #f9f9f9;
     color: #333;
@@ -780,27 +862,55 @@ h6 {
     color: #0077b5;
 }
 
-/* ---------------------------------------------------------------- */
-/* --- MEDIA QUERIES FOR MOBILE RESPONSIVENESS (MAX-WIDTH: 768px) --- */
-/* ---------------------------------------------------------------- */
 @media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
 
-    /* NAVIGATION BAR */
+    header {
+        padding: 15px 0;
+    }
+    
+    header.scrolled {
+        padding: 8px 0;
+    }
+
     nav {
         width: 90%;
-        padding: 0.8rem 1.5rem;
-        margin-top: 20px;
+        padding: 0.7rem 1rem 0.7rem 0.8rem;
+        justify-content: space-between;
+    }
+    
+    nav.scrolled {
+        padding: 0.6rem 0.9rem 0.6rem 0.7rem;
+    }
+
+    .nav-logo img {
+        height: 65px;
+        max-width: 220px;
+    }
+
+    nav.scrolled .nav-logo img {
+        height: 58px;
     }
 
     .hamburger {
         display: block;
+        order: 2;
     }
 
-    /* MOBILE MENU OVERLAY */
+    .nav-logo {
+        order: 1;
+    }
+
+    .nav-links {
+        order: 3;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
-        top: 80px; /* Adjusted to sit below the nav bar */
+        top: 80px;
         left: 50%;
         transform: translateX(-50%);
         flex-direction: column;
@@ -811,7 +921,7 @@ h6 {
         padding: 20px 0;
         gap: 10px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        z-index: 999; /* Ensure it stays above content but below the hamburger */
+        z-index: 999;
     }
 
     .nav-links.active {
@@ -838,7 +948,6 @@ h6 {
         padding: 12px 24px;
     }
 
-    /* HERO SECTION CENTERING FIXES */
     .hero {
         text-align: center;
         padding: 50px 10px;
@@ -858,27 +967,24 @@ h6 {
         font-size: 16px;
         max-width: 90%; 
         padding: 1px 0;
-        margin: 0 auto; /* Centers paragraph */
+        margin: 0 auto;
     }
 
-    /* FIX: SOCIAL ICONS Centering */
     .social-icons {
-        margin: 20px auto 10px; /* Center the icons and give spacing */
+        margin: 20px auto 10px;
         justify-content: center;
         width: fit-content;
-        margin-left: auto; /* Override main CSS margin-left */
+        margin-left: auto;
     }
     
-    /* FIX: TAGLINE BUTTON Centering */
     .tagline-btn {
         margin-left: auto;
         margin-right: auto;
         display: block;
     }
 
-    /* TECH STACK ADJUSTMENTS */
     .tech-categories {
-        grid-template-columns: 1fr; /* Stack categories vertically on mobile */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     
@@ -887,26 +993,22 @@ h6 {
         margin-right: auto;
     }
 
-
-    /* FIX: PROJECTS SECTION (Preventing Overflow) */
     .projects-container {
-        padding: 40px 10px; /* Reduced padding helps contain the grid */
+        padding: 40px 10px;
         margin: 20px auto;
         border-radius: 20px; 
     }
 
     .projects-grid {
-        grid-template-columns: 1fr; /* Force cards to stack on mobile */
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 0;
     }
 
     .project-card {
-        max-width: 100%; /* Ensures it fits within the container */
+        max-width: 100%;
     }
 
-
-    /* TIMELINE FIXES */
     .timeline::after {
         left: 31px;
     }
@@ -930,13 +1032,12 @@ h6 {
         left: 23px;
     }
 
-    /* FOOTER FIXES */
     .footer {
         flex-direction: column;
         text-align: center;
         padding: 1.5rem 10px; 
     }
-
+    
     .footer-container {
         display: flex;
         flex-direction: column;
@@ -948,30 +1049,22 @@ h6 {
         margin-top: 10px;
     }
 }
-/* ---------------------------------------------------------------- */
-/* --- SCROLL REVEAL ANIMATION STYLES (NEW CODE BELOW) --- */
-/* ---------------------------------------------------------------- */
 
-/* Base state for elements to be animated (hidden, blurry, slightly offset) */
 .hidden {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1); /* Main transition property */
+    transition: all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1);
 }
 
-/* State when the element is in view (visible, sharp, original position) */
 .show {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
 }
 
-/* Apply staggered animation to children of animated elements 
-   (The JavaScript will set the custom property --i (index) on these elements) */
-.tech-categories .tech-category, /* Tech Stack Categories */
-.projects-grid .project-card, /* Individual Project Cards */
-.timeline .container { /* Individual Timeline Items */
-    /* Use CSS variable to multiply delay by the index supplied by JS */
+.tech-categories .tech-category,
+.projects-grid .project-card,
+.timeline .container {
     transition-delay: calc(var(--i) * 100ms); 
 }

@@ -4,6 +4,26 @@ emailjs.init("pXhcmGhi2ZodFCjFc");
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".cont-container");
     const inputs = form.querySelectorAll("input");
+    const submitBtn = form.querySelector(".message-btn");
+    const nav = document.querySelector("nav");
+    const header = document.querySelector("header");
+
+    // --- STICKY NAVBAR WITH BLUR EFFECT ON SCROLL ---
+    let lastScroll = 0;
+    
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll > 80) {
+            nav.classList.add("scrolled");
+            header.classList.add("scrolled");
+        } else {
+            nav.classList.remove("scrolled");
+            header.classList.remove("scrolled");
+        }
+        
+        lastScroll = currentScroll;
+    });
 
     // --- Hamburger Menu Logic ---
     const hamburger = document.querySelector(".hamburger");
@@ -27,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Form Handling and Validation ---
     
-    // Handle form submission
-    form.addEventListener("submit", (e) => {
+    // Handle form submission with button state changes
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         let valid = true;
@@ -56,27 +76,70 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Send email via EmailJS
-        emailjs.sendForm('service_d2homxm', 'template_5ugbfmu', form)
-            .then(() => {
-                alert("Message sent successfully!");
-                form.reset();
-                inputs.forEach(input => input.style.borderColor = "#bbb");
-                // Remove the 'filled' class on reset to move labels back
-                inputs.forEach(input => input.classList.remove("filled")); 
-            })
-            .catch((err) => {
-                console.error(err);
-                alert("Oops! Something went wrong. Please try again.");
+        // Check internet connectivity
+        if (!navigator.onLine) {
+            submitBtn.textContent = "Failed";
+            submitBtn.classList.remove("sending", "sent");
+            submitBtn.classList.add("failed");
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = "Send Message";
+                submitBtn.classList.remove("failed");
+                submitBtn.disabled = false;
+            }, 3000);
+            return;
+        }
+
+        // Change button to "Sending..." state
+        submitBtn.textContent = "Sending...";
+        submitBtn.classList.add("sending");
+        submitBtn.disabled = true;
+
+        try {
+            // Send email via EmailJS
+            await emailjs.sendForm('service_d2homxm', 'template_5ugbfmu', form);
+            
+            // Success state - change to "Sent!"
+            submitBtn.textContent = "Sent!";
+            submitBtn.classList.remove("sending");
+            submitBtn.classList.add("sent");
+            
+            // Reset form
+            form.reset();
+            inputs.forEach(input => {
+                input.style.borderColor = "#bbb";
+                input.classList.remove("filled");
             });
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.textContent = "Send Message";
+                submitBtn.classList.remove("sent");
+                submitBtn.disabled = false;
+            }, 3000);
+            
+        } catch (err) {
+            console.error(err);
+            
+            // Error state - change to "Failed"
+            submitBtn.textContent = "Failed";
+            submitBtn.classList.remove("sending");
+            submitBtn.classList.add("failed");
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.textContent = "Send Message";
+                submitBtn.classList.remove("failed");
+                submitBtn.disabled = false;
+            }, 3000);
+        }
     });
 
     
     // Floating label logic
     inputs.forEach(input => {
         input.addEventListener("input", () => {
-            // This is primarily handled by the :not(:placeholder-shown) in CSS, 
-            // but keeping this for potential cross-browser or complex state management
             if (input.value.trim() !== "") {
                 input.classList.add("filled");
             } else {
@@ -86,70 +149,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ---------------------------------------------
-    // --- SCROLL REVEAL ANIMATION LOGIC (NEW CODE) ---
+    // --- SCROLL REVEAL ANIMATION LOGIC ---
     // ---------------------------------------------
     const hiddenElements = document.querySelectorAll(".hidden");
 
     const observerOptions = {
-        root: null, // viewport
-        threshold: 0.1, // trigger when 10% of the element is visible
+        root: null,
+        threshold: 0.1,
         rootMargin: "0px"
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add the 'show' class to start the transition
                 entry.target.classList.add("show");
-                
-                // Handle staggered children animations
                 handleStaggeredChildren(entry.target);
-                
-                // Stop observing once it has been revealed
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Function to apply staggering to children elements
     const handleStaggeredChildren = (parent) => {
         let childrenToStagger = [];
 
-        // Check for specific parents that require staggering
         if (parent.classList.contains("tech-categories")) {
             childrenToStagger = parent.querySelectorAll(".tech-category");
         } else if (parent.classList.contains("projects-grid")) {
             childrenToStagger = parent.querySelectorAll(".project-card");
         } else if (parent.classList.contains("timeline")) {
-            // Timeline items use the 'container' class
             childrenToStagger = parent.querySelectorAll(".container"); 
         }
 
-        // Apply a custom CSS property (--i) for staggered delay
         childrenToStagger.forEach((child, index) => {
-            // Set the transition delay index on the element
             child.style.setProperty('--i', index); 
-            // Add 'show' class to children immediately so the CSS transition starts with the calculated delay
             child.classList.add("show");
         });
     };
     
-    // Apply initial 'hidden' class and observe elements
     hiddenElements.forEach(el => {
-        // Ensure all target elements start hidden
         el.classList.add("hidden"); 
         
-        // For parent elements that contain staggered children, only observe the parent
         if (el.classList.contains("tech-categories") || el.classList.contains("projects-grid") || el.classList.contains("timeline")) {
             observer.observe(el);
-            // Also ensure the children start hidden (though they inherit from .hidden)
-            // and remove the 'hidden' class from the children to let the parent's 'show' handle them via handleStaggeredChildren
             el.querySelectorAll('.tech-category, .project-card, .container').forEach(child => {
                 child.classList.remove("hidden");
-                child.classList.add("hidden"); // Re-add to ensure initial state is set
+                child.classList.add("hidden");
             });
         } else {
-            // Observe single elements
             observer.observe(el);
         }
     });
