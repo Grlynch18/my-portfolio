@@ -2,68 +2,72 @@
 emailjs.init("pXhcmGhi2ZodFCjFc");
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector(".cont-container");
-    const inputs = form.querySelectorAll("input");
+    const form      = document.querySelector(".cont-container");
+    const inputs    = form.querySelectorAll("input");
     const submitBtn = form.querySelector(".message-btn");
-    const nav = document.querySelector("nav");
-    const header = document.querySelector("header");
+    const nav       = document.querySelector("nav");
+    const header    = document.querySelector("header");
 
-    // --- STICKY NAVBAR WITH BLUR EFFECT ON SCROLL ---
-    let lastScroll = 0;
-    
+    // ─── STICKY NAVBAR ───────────────────────────────────────
+    // Use rAF to batch scroll reads — prevents forced reflow on every scroll event
+    let ticking = false;
+
     window.addEventListener("scroll", () => {
-        const currentScroll = window.scrollY;
-        
-        if (currentScroll > 80) {
-            nav.classList.add("scrolled");
-            header.classList.add("scrolled");
-        } else {
-            nav.classList.remove("scrolled");
-            header.classList.remove("scrolled");
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrolled = window.scrollY > 80;
+                nav.classList.toggle("scrolled", scrolled);
+                header.classList.toggle("scrolled", scrolled);
+                ticking = false;
+            });
+            ticking = true;
         }
-        
-        lastScroll = currentScroll;
-    });
+    }, { passive: true }); // passive: true lets browser scroll without waiting for JS
 
-    // --- Hamburger Menu Logic ---
+    // ─── HAMBURGER MENU ──────────────────────────────────────
     const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
+    const navLinks  = document.querySelector(".nav-links");
 
-    const toggleMenu = () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
+    const toggleMenu = (force) => {
+        const isOpen = typeof force === "boolean"
+            ? force
+            : !hamburger.classList.contains("active");
+        hamburger.classList.toggle("active", isOpen);
+        navLinks.classList.toggle("active", isOpen);
+        hamburger.setAttribute("aria-expanded", isOpen);
     };
 
-    hamburger.addEventListener("click", toggleMenu);
+    hamburger.addEventListener("click", () => toggleMenu());
 
-    // Close menu when a link is clicked (for better mobile UX)
     navLinks.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
-            if (navLinks.classList.contains("active")) {
-                toggleMenu();
-            }
+            if (navLinks.classList.contains("active")) toggleMenu(false);
         });
     });
 
-    // --- Form Handling and Validation ---
-    
-    // Handle form submission with button state changes
+    // Close on outside tap (mobile UX)
+    document.addEventListener("click", (e) => {
+        if (
+            navLinks.classList.contains("active") &&
+            !navLinks.contains(e.target) &&
+            !hamburger.contains(e.target)
+        ) {
+            toggleMenu(false);
+        }
+    });
+
+    // ─── FORM VALIDATION & SUBMISSION ────────────────────────
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         let valid = true;
 
-        // Basic validation
         inputs.forEach(input => {
-            if (!input.value.trim()) {
-                input.style.borderColor = "#FF6B6B";
-                valid = false;
-            } else {
-                input.style.borderColor = "#bbb";
-            }
+            const ok = input.value.trim() !== "";
+            input.style.borderColor = ok ? "#ddd" : "#FF6B6B";
+            if (!ok) valid = false;
         });
 
-        // Email validation
         const emailInput = form.querySelector('input[type="email"]');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value)) {
@@ -71,133 +75,81 @@ document.addEventListener("DOMContentLoaded", () => {
             valid = false;
         }
 
-        if (!valid) {
-            alert("Please fill all fields correctly.");
-            return;
-        }
+        if (!valid) return;
 
-        // Check internet connectivity
         if (!navigator.onLine) {
-            submitBtn.textContent = "Failed";
-            submitBtn.classList.remove("sending", "sent");
-            submitBtn.classList.add("failed");
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = "Send Message";
-                submitBtn.classList.remove("failed");
-                submitBtn.disabled = false;
-            }, 3000);
+            setBtn("Failed", "failed", true);
+            resetBtn(3000);
             return;
         }
 
-        // Change button to "Sending..." state
-        submitBtn.textContent = "Sending...";
-        submitBtn.classList.add("sending");
-        submitBtn.disabled = true;
+        setBtn("Sending...", "sending", true);
 
         try {
-            // Send email via EmailJS
-            await emailjs.sendForm('service_d2homxm', 'template_5ugbfmu', form);
-            
-            // Success state - change to "Sent!"
-            submitBtn.textContent = "Sent!";
-            submitBtn.classList.remove("sending");
-            submitBtn.classList.add("sent");
-            
-            // Reset form
+            await emailjs.sendForm("service_d2homxm", "template_5ugbfmu", form);
+            setBtn("Sent!", "sent", true);
             form.reset();
             inputs.forEach(input => {
-                input.style.borderColor = "#bbb";
+                input.style.borderColor = "#ddd";
                 input.classList.remove("filled");
             });
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitBtn.textContent = "Send Message";
-                submitBtn.classList.remove("sent");
-                submitBtn.disabled = false;
-            }, 3000);
-            
         } catch (err) {
             console.error(err);
-            
-            // Error state - change to "Failed"
-            submitBtn.textContent = "Failed";
-            submitBtn.classList.remove("sending");
-            submitBtn.classList.add("failed");
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitBtn.textContent = "Send Message";
-                submitBtn.classList.remove("failed");
-                submitBtn.disabled = false;
-            }, 3000);
+            setBtn("Failed", "failed", true);
         }
+
+        resetBtn(3000);
     });
 
-    
-    // Floating label logic
+    function setBtn(text, cls, disabled) {
+        submitBtn.textContent = text;
+        submitBtn.className   = "message-btn " + cls;
+        submitBtn.disabled    = disabled;
+    }
+
+    function resetBtn(delay) {
+        setTimeout(() => {
+            submitBtn.textContent = "Send Message";
+            submitBtn.className   = "message-btn";
+            submitBtn.disabled    = false;
+        }, delay);
+    }
+
+    // ─── FLOATING LABEL ──────────────────────────────────────
     inputs.forEach(input => {
-        input.addEventListener("input", () => {
-            if (input.value.trim() !== "") {
-                input.classList.add("filled");
-            } else {
-                input.classList.remove("filled");
-            }
-        });
+        const update = () => input.classList.toggle("filled", input.value.trim() !== "");
+        input.addEventListener("input",  update);
+        input.addEventListener("change", update); // catches autofill
     });
 
-    // ---------------------------------------------
-    // --- SCROLL REVEAL ANIMATION LOGIC ---
-    // ---------------------------------------------
-    const hiddenElements = document.querySelectorAll(".hidden");
-
-    const observerOptions = {
-        root: null,
-        threshold: 0.1,
-        rootMargin: "0px"
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    // ─── SCROLL REVEAL ───────────────────────────────────────
+    // Single IntersectionObserver for everything — lean and efficient
+    const revealObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                handleStaggeredChildren(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+            if (!entry.isIntersecting) return;
 
-    const handleStaggeredChildren = (parent) => {
-        let childrenToStagger = [];
+            const el = entry.target;
+            el.classList.add("show");
 
-        if (parent.classList.contains("tech-categories")) {
-            childrenToStagger = parent.querySelectorAll(".tech-category");
-        } else if (parent.classList.contains("projects-grid")) {
-            childrenToStagger = parent.querySelectorAll(".project-card");
-        } else if (parent.classList.contains("timeline")) {
-            childrenToStagger = parent.querySelectorAll(".container"); 
-        }
-
-        childrenToStagger.forEach((child, index) => {
-            child.style.setProperty('--i', index); 
-            child.classList.add("show");
-        });
-    };
-    
-    hiddenElements.forEach(el => {
-        el.classList.add("hidden"); 
-        
-        if (el.classList.contains("tech-categories") || el.classList.contains("projects-grid") || el.classList.contains("timeline")) {
-            observer.observe(el);
-            el.querySelectorAll('.tech-category, .project-card, .container').forEach(child => {
-                child.classList.remove("hidden");
-                child.classList.add("hidden");
+            // Stagger children if needed
+            const children = el.querySelectorAll(
+                ".tech-category, .project-card, .container"
+            );
+            children.forEach((child, i) => {
+                child.style.setProperty("--i", i);
             });
-        } else {
-            observer.observe(el);
-        }
+
+            // Stop observing — no need to re-trigger
+            obs.unobserve(el);
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    // Observe all hidden elements
+    document.querySelectorAll(".hidden").forEach(el => {
+        revealObserver.observe(el);
     });
 
 });
