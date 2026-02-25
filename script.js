@@ -122,6 +122,38 @@ document.addEventListener("DOMContentLoaded", () => {
         input.addEventListener("change", update); // catches autofill
     });
 
+    // ─── MOBILE: TAP-TO-REVEAL PROJECT CARDS ─────────────────
+    // On touch devices, a tap on a card reveals the overlay (like hover on desktop).
+    // A second tap on a link inside works normally. Tapping outside closes.
+    const isTouchDevice = () => window.matchMedia("(hover: none)").matches;
+
+    document.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("click", (e) => {
+            if (!isTouchDevice()) return; // desktop — CSS hover handles it
+
+            const isLink = e.target.closest(".project-link");
+
+            if (!card.classList.contains("tapped")) {
+                // First tap — reveal overlay, block the link click
+                e.preventDefault();
+                // Close any other open cards
+                document.querySelectorAll(".project-card.tapped").forEach(c => {
+                    if (c !== card) c.classList.remove("tapped");
+                });
+                card.classList.add("tapped");
+            }
+            // If already tapped and user tapped a link — let it through naturally
+        });
+    });
+
+    // Tap outside any card → close all
+    document.addEventListener("click", (e) => {
+        if (!isTouchDevice()) return;
+        if (!e.target.closest(".project-card")) {
+            document.querySelectorAll(".project-card.tapped").forEach(c => c.classList.remove("tapped"));
+        }
+    });
+
     // ─── SCROLL REVEAL ───────────────────────────────────────
     // Single IntersectionObserver for everything — lean and efficient
     const revealObserver = new IntersectionObserver((entries, obs) => {
