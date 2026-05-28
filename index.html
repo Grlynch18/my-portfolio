@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!--SEO TAGS-->
   <title>Ademide Adedeji | Full-Stack Developer & AI Automation Engineer</title>
-  <meta name="description"
-    content="Ademide Adedeji— Full-Stack Developer and AI Automation Engineer based in Ibadan, Nigeria. I build responsive, high-performance websites and AI-powered automation workflows including Telegram bots and productivity tools." />
-  <meta name="keywords"
-    content="Ademide Adedeji, full-stack developer, AI automation engineer, web developer Nigeria, HTML CSS JavaScript, Python automation, Telegram bots, workflow automation, portfolio" />
+  <meta name="description" content="Ademide Adedeji— Full-Stack Developer and AI Automation Engineer based in Ibadan, Nigeria." />
+  <meta name="keywords" content="Ademide Adedeji, full-stack developer, AI automation engineer, web developer Nigeria" />
   <meta name="author" content="Ademide Adedeji" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://portfolio-ten-khaki-nj9spz5jeq.vercel.app/" />
-
-  <!-- Open Graph (LinkedIn, Facebook, etc.) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ademide Adedeji | Full-Stack Developer & AI Automation Engineer" />
-  <meta property="og:description"
-    content="Full-Stack developer and AI automation engineer crafting sleek web experiences and AI driven workflows." />
+  <meta property="og:description" content="Full-Stack developer and AI automation engineer crafting sleek web experiences and AI driven workflows." />
   <meta property="og:url" content="https://portfolio-ten-khaki-nj9spz5jeq.vercel.app/" />
-  <meta property="og:site_name" content="Ademide Adedeji Portfolio" />
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,406 +21,658 @@
     "name": "Ademide Adedeji",
     "url": "https://portfolio-ten-khaki-nj9spz5jeq.vercel.app/",
     "jobTitle": "Full-Stack Developer & AI Automation Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    },
     "sameAs": [
       "https://github.com/Grlynch18",
       "https://t.me/lynchxx18",
       "https://www.linkedin.com/in/ademide-adedeji-6b022a3b3"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ibadan",
-      "addressCountry": "Nigeria"
-    }
+    ]
   }
   </script>
 
-  <!-- Favicon -->
   <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon" />
-
-  <!-- Styles & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
-    integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- FIX: removed duplicate <link rel="stylesheet" href="./style.css"> that was here -->
-
-  <!-- Third-party Script -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
-
 <body>
-  <header>
-    <nav>
-      <a href="#" class="nav-logo">
-        <img src="./logo.jpg" alt="Ademide Adedeji Logo">
+
+  <!-- ═══ CURSOR ═══ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ═══ NOISE OVERLAY ═══ -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header id="header">
+    <nav id="navbar">
+      <a href="#" class="nav-logo" aria-label="Home">
+        <img src="./logo.jpg" alt="Ademide Adedeji" />
+        <span class="nav-logo-text">Ademide</span>
       </a>
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#techstack">Tech Stack</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a class="resume-btn" href="./ADEDEJI_ADEMIDE.pdf" download="ademideresume.pdf">Resume</a></li>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#techstack" class="nav-link">Stack</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#timeline" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+        </button>
+        <a class="btn-liquid btn-nav-resume" href="./ADEDEJI_ADEMIDE.pdf" download="ademideresume.pdf">
+          <span>Resume</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section>
-      <div class="hero">
-        <h1>ADEMIDE ADEDEJI</h1>
-        <h2>Full-Stack & AI AUTOMATION ENGINEER</h2>
-        <p class="hero-p">Based in Nigeria, I build full stack web applications, crafting intuitive user interfaces and scalable backend systems while leveraging AI to automate complex workflows and turn ideas into seamless, high performance digital experiences.</p>
-        <div class="social-icons">
-          <a href="mailto:adedejiademide4@gmail.com"><i class="bi bi-envelope-at-fill"></i></a>
-          <a href="https://t.me/lynchxx18"><i class="bi bi-telegram"></i></a>
-          <a href="https://github.com/Grlynch18"><i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b"><i class="bi bi-linkedin"></i></a>
+
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" class="hero-section">
+      <!-- Background effects -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="hero-blob blob-3"></div>
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-grid"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-left">
+          <!-- Availability badge -->
+          <div class="availability-badge">
+            <span class="availability-dot"></span>
+            <span>Available for work</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-title-line" data-text="ADEMIDE">ADEMIDE</span>
+            <span class="hero-title-line" data-text="ADEDEJI">ADEDEJI</span>
+          </h1>
+
+          <div class="hero-role">
+            <span class="role-prefix">I build</span>
+            <span class="role-text" id="roleText"></span>
+            <span class="role-cursor">|</span>
+          </div>
+
+          <p class="hero-desc">
+            Full-Stack developer & AI Automation engineer based in <strong>Ibadan, Nigeria</strong>. 
+            I craft intelligent digital products that bridge beautiful interfaces with powerful automation.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn-liquid btn-primary-liquid">
+              <i class="bi bi-grid-fill"></i>
+              <span>View Projects</span>
+            </a>
+            <a href="./ADEDEJI_ADEMIDE.pdf" download class="btn-liquid btn-secondary-liquid">
+              <i class="bi bi-download"></i>
+              <span>Download CV</span>
+            </a>
+            <a href="#contact" class="btn-liquid btn-ghost-liquid">
+              <i class="bi bi-chat-dots-fill"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="mailto:adedejiademide4@gmail.com" class="social-link" aria-label="Email">
+              <i class="bi bi-envelope-at-fill"></i>
+            </a>
+            <a href="https://github.com/Grlynch18" target="_blank" class="social-link" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank" class="social-link" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://t.me/lynchxx18" target="_blank" class="social-link" aria-label="Telegram">
+              <i class="bi bi-telegram"></i>
+            </a>
+          </div>
         </div>
-        <a href="#contact"><button class="tagline-btn">Get In Touch</button></a>
+
+        <div class="hero-right" aria-hidden="true">
+          <!-- Floating UI Cards -->
+          <div class="hero-visual">
+            <div class="float-card card-main glass-card">
+              <div class="card-inner">
+                <div class="code-block">
+                  <div class="code-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <pre class="code-text"><code><span class="c-purple">const</span> <span class="c-blue">engineer</span> = {
+  <span class="c-green">name</span>: <span class="c-orange">"Ademide"</span>,
+  <span class="c-green">role</span>: <span class="c-orange">"Full-Stack + AI"</span>,
+  <span class="c-green">status</span>: <span class="c-orange">"Building..."</span>,
+  <span class="c-green">stack</span>: [<span class="c-orange">"JS"</span>, <span class="c-orange">"Python"</span>],
+  <span class="c-green">available</span>: <span class="c-purple">true</span>
+};</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-card card-tech glass-card">
+              <div class="mini-stack">
+                <span class="mini-tag">HTML</span>
+                <span class="mini-tag">CSS</span>
+                <span class="mini-tag">JS</span>
+                <span class="mini-tag active">AI</span>
+                <span class="mini-tag">Python</span>
+                <span class="mini-tag">Node</span>
+              </div>
+            </div>
+
+            <div class="float-card card-stat glass-card">
+              <div class="stat-row">
+                <span class="stat-num" data-count="7">0</span>
+                <span class="stat-label">Projects Built</span>
+              </div>
+            </div>
+
+            <div class="float-card card-status glass-card">
+              <div class="status-indicator">
+                <span class="pulse-dot"></span>
+                <span>Currently coding...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
       </div>
     </section>
 
-    <section id="techstack" class="tech-stack-section">
-      <div class="tech-stack">
-        <h3>My Tech Stack</h3>
-        <span class="tech-stack-span">My arsenal for crafting modern web experiences.</span>
-        <div class="tech-categories hidden">
-          <div class="tech-category">
-            <h4 class="category-title">Front-End Development</h4>
-            <div class="tech-items">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript (ES6+) <span class="learning-badge">Learning</span></span>
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about" class="about-section section-pad">
+      <div class="container">
+        <div class="section-label reveal-up">About Me</div>
+        <h2 class="section-title reveal-up">Building the future,<br/><em>one commit at a time</em></h2>
+
+        <div class="about-grid">
+          <div class="about-text reveal-up">
+            <p>I'm Ademide — a <strong>Full-Stack Developer</strong> and <strong>AI Automation Engineer</strong> who believes code is the closest thing we have to magic. Based in Ibadan, Nigeria, I specialize in turning complex ideas into elegant, high-performance digital experiences.</p>
+            <p>My approach sits at the intersection of clean frontend craft and intelligent automation — building products that don't just look good, but <em>think smart</em>. From real-time crypto dashboards to Telegram bots, I build tools that make life genuinely easier.</p>
+            <p>Currently deepening my foundation in Computer Science at LAUTECH while freelancing and building in public. The goal? Creating technology that feels like it was made by a human, for humans.</p>
+
+            <div class="about-philosophy">
+              <blockquote>"I build modern intelligent digital products."</blockquote>
             </div>
           </div>
 
-          <div class="tech-category">
-            <h4 class="category-title">AI Automation</h4>
-            <div class="tech-items">
-              <span class="tech-tag">Workflow Automation</span>
-              <span class="tech-tag">AI Integration</span>
+          <div class="about-cards reveal-up">
+            <div class="about-card glass-card">
+              <i class="bi bi-lightning-fill"></i>
+              <h4>What I Do</h4>
+              <p>Full-stack web apps, AI automation workflows, Telegram bots, and intelligent APIs that scale.</p>
             </div>
-          </div>
-
-          <div class="tech-category">
-            <h4 class="category-title">Python & Tools</h4>
-            <div class="tech-items">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Telegram Bots</span>
-              <span class="tech-tag">Git</span>
-              <span class="tech-tag">GitHub</span>
+            <div class="about-card glass-card">
+              <i class="bi bi-cpu-fill"></i>
+              <h4>Current Focus</h4>
+              <p>Deepening Node.js expertise, exploring AI agent pipelines, and shipping production-ready SaaS tools.</p>
             </div>
-          </div>
-
-          <div class="tech-category">
-            <h4 class="category-title">Core Skills</h4>
-            <div class="tech-items">
-              <span class="tech-tag">Interpersonal</span>
-              <span class="tech-tag">Creativity</span>
-              <span class="tech-tag">Data Operations Specialist</span>
-            </div>
-          </div>
-
-          <div class="tech-category">
-            <h4 class="category-title">Back-End Development</h4>
-            <div class="tech-items">
-              <span class="tech-tag">Node.js <span class="learning-badge">Learning</span></span>
-              <span class="tech-tag">Express.js <span class="learning-badge">Learning</span></span>
-              <span class="tech-tag">Supabase</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="projects-container">
-        <h4>Projects</h4>
-        <span class="project-span">A collection of my recent work and experiments.</span>
-
-        <div class="projects-grid hidden">
-          <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./cointrack-sample.png" alt="CoinTracker">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">CoinTracker</h4>
-              <p class="project-description">Track cryptocurrency prices in real-time. A sleek crypto monitoring
-                dashboard that helps users stay updated on market trends and make informed investment decisions.</p>
-              <div class="project-tech">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">JAVASCRIPT</span>
-                <span class="tech-badge">API</span>
-              </div>
-              <div class="project-links">
-                <a href="https://my-acode-projects.vercel.app/cointracker.html" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./localbite-samle.png" alt="LocalBite">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">LocalBite</h4>
-              <p class="project-description">Discover local restaurants with ease. A dynamic food discovery platform
-                featuring restaurant cards with ratings, cuisine types, hours, and contact info—making it simple to find
-                your next great meal.</p>
-              <div class="project-tech">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">JAVASCRIPT</span>
-              </div>
-              <div class="project-links">
-                <a href="https://my-acode-projects.vercel.app/index.html" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./resumebuilder-sample.png" alt="Resume Builder">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">Resume Builder</h4>
-              <p class="project-description">Build professional resumes effortlessly. An intuitive resume creation tool
-                with customizable templates, real-time preview, and structured sections to help job seekers stand out.</p>
-              <div class="project-tech">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">JAVASCRIPT</span>
-              </div>
-              <div class="project-links">
-                <a href="https://my-acode-projects.vercel.app/resumebuilder.html" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./memebot-sample.png" alt="Meme Bot">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">Meme Bot</h4>
-              <p class="project-description">An intelligent Telegram bot that delivers fresh memes on demand using Python
-                and APIs. Entertainment meets automation.</p>
-              <div class="project-tech">
-                <span class="tech-badge">PYTHON</span>
-                <span class="tech-badge">TELEGRAM API</span>
-              </div>
-              <div class="project-links">
-                <a href="https://t.me/habittrackbot_bot" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="#" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./habitbot-sample.png" alt="Habit Bot">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">Habit Bot</h4>
-              <p class="project-description">Track and build better habits with this Telegram bot that sends daily
-                reminders and tracks your progress. Consistency made simple.</p>
-              <div class="project-tech">
-                <span class="tech-badge">PYTHON</span>
-                <span class="tech-badge">TELEGRAM API</span>
-              </div>
-              <div class="project-links">
-                <a href="https://t.me/memecfinder_bot" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="https://github.com/Grlynch18/python-telegrambot" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./updatedvog.png" alt="VogWorld fashion store">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">VogWorld</h4>
-              <p class="project-description">Modern streetwear e-commerce website with product catalog, cart functionality, and responsive design.</p>
-              <div class="project-tech">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">JAVASCRIPT</span>
-              </div>
-              <div class="project-links">
-                <a href="https://client-neon-two-17.vercel.app/" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="#" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-         
-
-              <div class="project-card">
-            <div class="project-image">
-              <img loading="lazy" class="img-1" src="./buildr preview.png" alt="VogWorld fashion store">
-            </div>
-            <div class="project-overlay">
-              <h4 class="project-title">BUILDR</h4>
-              <p class="project-description">A modern tool which helps builders connect with each other and build better projects together.</p>
-              <div class="project-tech">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">JAVASCRIPT</span>
-                <span class="tech-badge">still working</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" class="project-link" title="Live Site">
-                  <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <a href="#" target="_blank" class="project-link" title="GitHub Repo">
-                  <i class="bi bi-github"></i>
-                </a>
-              </div>
+            <div class="about-card glass-card">
+              <i class="bi bi-geo-alt-fill"></i>
+              <h4>Location</h4>
+              <p>Ibadan, Nigeria — working with clients globally, building for the world.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="timeline">
-      <h2>Work Experience</h2>
-      <div class="timeline hidden">
-
-        <div class="container left">
-          <div class="content">
-            <h3>AI Workflow Developer</h3>
-            <span>2025 - Present</span>
-            <p>Building automation bots and AI-powered tools using Python and Zapier for real-time crypto tracking and
-              productivity workflows.</p>
+    <!-- ═══ STATS ═══ -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal-up">
+            <span class="stat-big" data-count="7">0</span>
+            <span class="stat-desc">Projects Built</span>
+          </div>
+          <div class="stat-item reveal-up" style="--delay:0.1s">
+            <span class="stat-big" data-count="8">0</span>
+            <span class="stat-desc">Technologies</span>
+          </div>
+          <div class="stat-item reveal-up" style="--delay:0.2s">
+            <span class="stat-big" data-count="2">0</span>
+            <span class="stat-desc">AI Bots Deployed</span>
+          </div>
+          <div class="stat-item reveal-up" style="--delay:0.3s">
+            <span class="stat-big" data-count="1">0</span>
+            <span class="stat-desc">Year Freelancing</span>
           </div>
         </div>
-
-        <div class="container right">
-          <div class="content">
-            <h3>Full-Stack Developer</h3>
-            <span>2024 - Present</span>
-            <p>Developed responsive web apps using HTML, CSS, and JavaScript including
-              <a href="https://my-acode-projects.vercel.app/index.html" target="_blank">LocalBites</a> and
-              <a href="https://my-acode-projects.vercel.app/cointracker.html" target="_blank">CoinTracker</a>.
-            </p>
-          </div>
-        </div>
-
-        <div class="container left">
-          <div class="content">
-            <h3>Telegram Bot Developer</h3>
-            <span>2024</span>
-            <p>Built two bots — one for task management and another to track bullish memecoins using the DEXScreener API
-              and Jupiter DEX.</p>
-          </div>
-        </div>
-
-        <div class="container right">
-          <div class="content">
-            <h3>BSc. Computer Science</h3>
-            <span>Ladoke Akintola University of Technology (2024 - Present)</span>
-            <p>Developing strong analytical and problem-solving skills that I now apply to building efficient, scalable,
-              and user-focused digital solutions.</p>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <section id="contact" class="contact-form hidden">
-      <h6>Let's Build Something Nice!</h6>
-      <span class="contact-span">Got a project or idea? I'd love to help bring it to life</span>
+    <!-- ═══ TECH STACK ═══ -->
+    <section id="techstack" class="stack-section section-pad">
+      <div class="container">
+        <div class="section-label reveal-up">Arsenal</div>
+        <h2 class="section-title reveal-up">The tools I use<br/><em>to build things</em></h2>
 
-      <form class="cont-container">
-        <div class="input-group">
-          <!-- FIX: placeholder=" " enables CSS :not(:placeholder-shown) for floating label -->
-          <input name="name" type="text" placeholder=" " required>
-          <label>Your Name</label>
+        <div class="stack-marquee-wrapper reveal-up">
+          <div class="stack-marquee">
+            <div class="marquee-track" id="marqueeTrack">
+              <span class="marquee-item"><i class="bi bi-filetype-html"></i> HTML5</span>
+              <span class="marquee-item"><i class="bi bi-filetype-css"></i> CSS3</span>
+              <span class="marquee-item"><i class="bi bi-filetype-js"></i> JavaScript</span>
+              <span class="marquee-item"><i class="bi bi-filetype-py"></i> Python</span>
+              <span class="marquee-item"><i class="bi bi-node-plus-fill"></i> Node.js</span>
+              <span class="marquee-item"><i class="bi bi-database-fill"></i> Supabase</span>
+              <span class="marquee-item"><i class="bi bi-robot"></i> OpenAI</span>
+              <span class="marquee-item"><i class="bi bi-telegram"></i> Telegram API</span>
+              <span class="marquee-item"><i class="bi bi-git"></i> Git</span>
+              <span class="marquee-item"><i class="bi bi-github"></i> GitHub</span>
+              <!-- Duplicate for infinite loop -->
+              <span class="marquee-item"><i class="bi bi-filetype-html"></i> HTML5</span>
+              <span class="marquee-item"><i class="bi bi-filetype-css"></i> CSS3</span>
+              <span class="marquee-item"><i class="bi bi-filetype-js"></i> JavaScript</span>
+              <span class="marquee-item"><i class="bi bi-filetype-py"></i> Python</span>
+              <span class="marquee-item"><i class="bi bi-node-plus-fill"></i> Node.js</span>
+              <span class="marquee-item"><i class="bi bi-database-fill"></i> Supabase</span>
+              <span class="marquee-item"><i class="bi bi-robot"></i> OpenAI</span>
+              <span class="marquee-item"><i class="bi bi-telegram"></i> Telegram API</span>
+              <span class="marquee-item"><i class="bi bi-git"></i> Git</span>
+              <span class="marquee-item"><i class="bi bi-github"></i> GitHub</span>
+            </div>
+          </div>
         </div>
-        <div class="input-group">
-          <input name="email" type="email" placeholder=" " required>
-          <label>Your Email</label>
-        </div>
-        <div class="input-group">
-          <input name="subject" type="text" placeholder=" " required>
-          <label>Subject</label>
-        </div>
-        <div class="input-group">
-          <input name="message" type="text" placeholder=" " required>
-          <label>Your Message</label>
-        </div>
-        <button type="submit" class="message-btn">Send Message</button>
-      </form>
 
-      <div class="contact-info">
-        <div class="info-item">
-          <i class="bi bi-telephone-fill"></i>
-          <p>Phone Number: <span class="info-span">+234-813-470-5269</span></p>
-        </div>
-        <div class="info-item">
-          <i class="bi bi-envelope-fill"></i>
-          <p>Email: <span class="info-span">adedejiademide4@gmail.com</span></p>
-        </div>
-        <div class="info-item">
-          <i class="bi bi-geo-alt-fill"></i>
-          <p>Location: <span class="info-span">Ibadan, Nigeria</span></p>
+        <div class="tech-categories-grid">
+          <div class="tech-cat-card glass-card reveal-up">
+            <div class="cat-icon"><i class="bi bi-layout-wtf"></i></div>
+            <h3>Frontend</h3>
+            <div class="cat-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript ES6+<span class="learning">Learning</span></span>
+            </div>
+          </div>
+
+          <div class="tech-cat-card glass-card reveal-up" style="--delay:0.1s">
+            <div class="cat-icon"><i class="bi bi-server"></i></div>
+            <h3>Backend</h3>
+            <div class="cat-tags">
+              <span class="tag">Node.js<span class="learning">Learning</span></span>
+              <span class="tag">Express.js<span class="learning">Learning</span></span>
+              <span class="tag">Supabase</span>
+            </div>
+          </div>
+
+          <div class="tech-cat-card glass-card reveal-up" style="--delay:0.2s">
+            <div class="cat-icon"><i class="bi bi-robot"></i></div>
+            <h3>AI / Automation</h3>
+            <div class="cat-tags">
+              <span class="tag">Python</span>
+              <span class="tag">OpenAI API</span>
+              <span class="tag">Telegram Bots</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
+          </div>
+
+          <div class="tech-cat-card glass-card reveal-up" style="--delay:0.3s">
+            <div class="cat-icon"><i class="bi bi-tools"></i></div>
+            <h3>Tools & Skills</h3>
+            <div class="cat-tags">
+              <span class="tag">Git & GitHub</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">Data Operations</span>
+              <span class="tag">Creative Thinking</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section id="projects" class="projects-section section-pad">
+      <div class="container">
+        <div class="section-label reveal-up">Work</div>
+        <h2 class="section-title reveal-up">Selected projects<br/><em>& experiments</em></h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card glass-card reveal-up">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./cointrack-sample.png" alt="CoinTracker dashboard" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">01</span>
+                <div class="project-badges">
+                  <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span><span class="badge">API</span>
+                </div>
+              </div>
+              <h3 class="project-name">CoinTracker</h3>
+              <p class="project-desc">Real-time cryptocurrency monitoring dashboard. Track market trends, prices, and make informed investment decisions with a sleek interface.</p>
+              <div class="project-actions">
+                <a href="https://my-acode-projects.vercel.app/cointracker.html" target="_blank" class="btn-liquid btn-proj-live">
+                  <i class="bi bi-box-arrow-up-right"></i><span>Live Demo</span>
+                </a>
+                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass-card reveal-up" style="--delay:0.1s">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./localbite-samle.png" alt="LocalBite app" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">02</span>
+                <div class="project-badges">
+                  <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span>
+                </div>
+              </div>
+              <h3 class="project-name">LocalBite</h3>
+              <p class="project-desc">Dynamic food discovery platform. Find local restaurants with ratings, cuisine types, hours, and contact info — your next great meal is one search away.</p>
+              <div class="project-actions">
+                <a href="https://my-acode-projects.vercel.app/index.html" target="_blank" class="btn-liquid btn-proj-live">
+                  <i class="bi bi-box-arrow-up-right"></i><span>Live Demo</span>
+                </a>
+                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass-card reveal-up" style="--delay:0.2s">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./resumebuilder-sample.png" alt="Resume Builder" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">03</span>
+                <div class="project-badges">
+                  <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span>
+                </div>
+              </div>
+              <h3 class="project-name">Resume Builder</h3>
+              <p class="project-desc">Intuitive resume creation tool with customizable templates, real-time preview, and structured sections. Help job seekers stand out effortlessly.</p>
+              <div class="project-actions">
+                <a href="https://my-acode-projects.vercel.app/resumebuilder.html" target="_blank" class="btn-liquid btn-proj-live">
+                  <i class="bi bi-box-arrow-up-right"></i><span>Live Demo</span>
+                </a>
+                <a href="https://github.com/Grlynch18/Acode" target="_blank" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass-card reveal-up" style="--delay:0.1s">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./memebot-sample.png" alt="Meme Bot" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">04</span>
+                <div class="project-badges">
+                  <span class="badge">Python</span><span class="badge">Telegram API</span>
+                </div>
+              </div>
+              <h3 class="project-name">Meme Bot</h3>
+              <p class="project-desc">Intelligent Telegram bot that delivers fresh memes on demand. Entertainment meets automation — powered by Python and live APIs.</p>
+              <div class="project-actions">
+                <a href="https://t.me/habittrackbot_bot" target="_blank" class="btn-liquid btn-proj-live">
+                  <i class="bi bi-telegram"></i><span>Open Bot</span>
+                </a>
+                <a href="#" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass-card reveal-up" style="--delay:0.2s">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./habitbot-sample.png" alt="Habit Bot" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">05</span>
+                <div class="project-badges">
+                  <span class="badge">Python</span><span class="badge">Telegram API</span>
+                </div>
+              </div>
+              <h3 class="project-name">Habit Bot</h3>
+              <p class="project-desc">Build better habits with daily reminders and progress tracking via Telegram. Consistency made simple — your personal accountability partner.</p>
+              <div class="project-actions">
+                <a href="https://t.me/memecfinder_bot" target="_blank" class="btn-liquid btn-proj-live">
+                  <i class="bi bi-telegram"></i><span>Open Bot</span>
+                </a>
+                <a href="https://github.com/Grlynch18/python-telegrambot" target="_blank" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass-card reveal-up" style="--delay:0.3s">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./updatedvog.png" alt="VogWorld" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">06</span>
+                <div class="project-badges">
+                  <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span>
+                </div>
+              </div>
+              <h3 class="project-name">VogWorld</h3>
+              <p class="project-desc">Modern streetwear e-commerce experience with full product catalog, cart functionality, and a responsive design that converts.</p>
+              <div class="project-actions">
+                <a href="https://client-neon-two-17.vercel.app/" target="_blank" class="btn-liquid btn-proj-live">
+                  <i class="bi bi-box-arrow-up-right"></i><span>Live Demo</span>
+                </a>
+                <a href="#" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass-card reveal-up project-card--wip" style="--delay:0.1s">
+            <div class="project-img-wrap">
+              <img loading="lazy" src="./buildr preview.png" alt="BUILDR" />
+              <div class="project-img-overlay"></div>
+              <span class="wip-badge">In Progress</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num">07</span>
+                <div class="project-badges">
+                  <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span>
+                </div>
+              </div>
+              <h3 class="project-name">BUILDR</h3>
+              <p class="project-desc">A modern platform connecting builders to collaborate and ship better projects together. Community-driven development, reimagined.</p>
+              <div class="project-actions">
+                <a href="#" class="btn-liquid btn-proj-live btn-disabled">
+                  <i class="bi bi-hourglass-split"></i><span>Coming Soon</span>
+                </a>
+                <a href="#" class="btn-liquid btn-proj-gh">
+                  <i class="bi bi-github"></i><span>Source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TIMELINE ═══ -->
+    <section id="timeline" class="timeline-section section-pad">
+      <div class="container">
+        <div class="section-label reveal-up">Journey</div>
+        <h2 class="section-title reveal-up">My path so far</h2>
+
+        <div class="timeline-wrap">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <div class="timeline-item reveal-up">
+            <div class="tl-dot"></div>
+            <div class="tl-content glass-card">
+              <span class="tl-year">2025 – Present</span>
+              <h3>AI Workflow Developer</h3>
+              <p>Building automation bots and AI-powered tools using Python and APIs for real-time crypto tracking and productivity workflows.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item right reveal-up" style="--delay:0.1s">
+            <div class="tl-dot"></div>
+            <div class="tl-content glass-card">
+              <span class="tl-year">2024 – Present</span>
+              <h3>Full-Stack Developer</h3>
+              <p>Developed responsive web apps using HTML, CSS, and JavaScript including LocalBites and CoinTracker. Began backend exploration with Node.js.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-up" style="--delay:0.2s">
+            <div class="tl-dot"></div>
+            <div class="tl-content glass-card">
+              <span class="tl-year">2024</span>
+              <h3>Telegram Bot Developer</h3>
+              <p>Built two production bots — one for habit tracking, another for tracking bullish memecoins using the DEXScreener API and Jupiter DEX.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item right reveal-up" style="--delay:0.3s">
+            <div class="tl-dot"></div>
+            <div class="tl-content glass-card">
+              <span class="tl-year">2024 – Present</span>
+              <h3>BSc. Computer Science</h3>
+              <p>Ladoke Akintola University of Technology. Building strong analytical and problem-solving foundations, applied to building efficient scalable digital solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="contact-section section-pad">
+      <div class="container">
+        <div class="section-label reveal-up">Contact</div>
+        <h2 class="section-title reveal-up">Let's build<br/><em>something great</em></h2>
+
+        <div class="contact-grid">
+          <div class="contact-left reveal-up">
+            <p class="contact-intro">Got a project or idea? I'd love to hear it. Whether it's a full product, a bot, or just a conversation — reach out.</p>
+
+            <div class="contact-links">
+              <a href="mailto:adedejiademide4@gmail.com" class="contact-link-item glass-card">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                  <span>Email</span>
+                  <strong>adedejiademide4@gmail.com</strong>
+                </div>
+              </a>
+              <a href="tel:+2348134705269" class="contact-link-item glass-card">
+                <i class="bi bi-telephone-fill"></i>
+                <div>
+                  <span>Phone</span>
+                  <strong>+234-813-470-5269</strong>
+                </div>
+              </a>
+              <div class="contact-link-item glass-card no-link">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  <span>Location</span>
+                  <strong>Ibadan, Nigeria</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-right reveal-up" style="--delay:0.15s">
+            <form class="contact-form glass-card" id="contactForm">
+              <div class="form-row">
+                <div class="form-field">
+                  <input type="text" name="name" id="fieldName" placeholder=" " required autocomplete="name" />
+                  <label for="fieldName">Your Name</label>
+                </div>
+                <div class="form-field">
+                  <input type="email" name="email" id="fieldEmail" placeholder=" " required autocomplete="email" />
+                  <label for="fieldEmail">Your Email</label>
+                </div>
+              </div>
+              <div class="form-field">
+                <input type="text" name="subject" id="fieldSubject" placeholder=" " required />
+                <label for="fieldSubject">Subject</label>
+              </div>
+              <div class="form-field">
+                <textarea name="message" id="fieldMessage" placeholder=" " rows="5" required></textarea>
+                <label for="fieldMessage">Your Message</label>
+              </div>
+              <button type="submit" class="btn-liquid btn-submit-liquid" id="submitBtn">
+                <i class="bi bi-send-fill"></i>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer hidden">
-    <div class="footer-container">
-      <p>&copy; 2025 Ademide Adedeji. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="https://github.com/Grlynch18" target="_blank"><i class="bi bi-github"></i></a>
-        <a href="https://t.me/lynchxx18" target="_blank"><i class="bi bi-telegram"></i></a>
-        <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank"><i class="bi bi-linkedin"></i></a>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <span class="footer-name">Ademide Adedeji</span>
+        <span class="footer-tagline">Building intelligent digital products.</span>
       </div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://github.com/Grlynch18" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://t.me/lynchxx18" target="_blank" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+        <a href="https://www.linkedin.com/in/ademide-adedeji-74162836b" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:adedejiademide4@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2025 Ademide Adedeji. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="./script.js"></script>
 </body>
-
 </html>
